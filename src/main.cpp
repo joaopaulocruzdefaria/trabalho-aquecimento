@@ -16,9 +16,11 @@ int main()
     leitor.lerArquivo(nomeArquivo , matriz);
     Incendio incendio(matriz);
 
-    matriz.printarMatriz(); 
-    incendio.IterarFogo(); 
-    incendio.IterarFogo(); 
+    matriz.printarMatriz();
+
+    incendio.IterarFogo();
+    incendio.IterarFogo();
+    incendio.IterarFogo();
 
     return 0;
 }

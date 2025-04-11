@@ -10,17 +10,12 @@ class Incendio{
     
     private:
         Matriz &matrizRef;
-        Matriz matrizCopy;
-        vector<vector< short int *>> matrizTemp;
-        short int linhasTemp;
-        short int colunasTemp;
         int turno=0;
 
     public:
         Incendio(Matriz &_matriz);
         void IterarFogo();
         bool PodePegarFogo(short int x, short int y);
-        void printarMatrizTemp();
 };
 
 #endif

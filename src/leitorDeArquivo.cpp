@@ -33,8 +33,8 @@ void leitorDeArquivo::lerArquivo(string &nomeArquivo, Matriz& _matriz)
         return;
     }
 
-    vector<vector<  short int *>> m_temp;
-    m_temp.resize(linhas, vector< short int *>(colunas, nullptr));
+    _matriz.inicializarMatriz(linhas,colunas);
+
 
     for (int i = 0; i < linhas; ++i)
     {
@@ -42,7 +42,7 @@ void leitorDeArquivo::lerArquivo(string &nomeArquivo, Matriz& _matriz)
         {
             for (int j = 0; j < colunas; ++j)
             {
-                m_temp[i][j] = new short int(linha[j] - '0');
+                _matriz.setItem(i,j,linha[j]- '0');
             }
         }
         else
@@ -53,25 +53,7 @@ void leitorDeArquivo::lerArquivo(string &nomeArquivo, Matriz& _matriz)
     }
 
     _matriz.setLinhas(linhas);
-    _matriz.setColunas(colunas);
-    _matriz.setMatriz(m_temp);
-
-    // for (int i = 0; i < linhas; i++)
-    // {
-    //     for (int j = 0; j < colunas; j++)
-    //     {
-    //         delete m_temp[i][j];
-    //     }
-    //     cout << endl;
-    // }
-
-    for (int i = 0; i < linhas; i++) {
-        for (int j = 0; j < colunas; j++) {
-            delete m_temp[i][j];
-        }
-    }
-    m_temp.clear();    
-    
+    _matriz.setColunas(colunas);   
 
     arquivo.close();
 }

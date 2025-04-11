@@ -6,7 +6,7 @@
 struct Pos {
     int x, y;
 
-    Pos() : x(), y() {}
+    Pos() : x(-1), y(-1) {}
 };
 
 // Definições globais para o ambiente

@@ -3,32 +3,23 @@
 
 void Matriz::printarMatriz()
 {
-    for (const auto &linha : m)
+    for (int i = 0; i < linhas; i++)
     {
-        for (const auto &ptr : linha)
+        for (int j = 0; j < colunas; j++)
         {
-            if (ptr)
-            {
-                std::cout << *ptr << ' '; // imprime o valor apontado
-            }
-            else
-            {
-                std::cout << "null "; // só pra segurança, se o ponteiro for nulo
-            }
+            cout << getItem(i, j) << " ";
         }
-        std::cout << '\n';
+        cout << endl;
     }
 }
 
-void Matriz::setMatriz(vector<vector<short int *>> outra)
+void Matriz::inicializarMatriz(short int _linhas, short int _colunas)
 {
-    for (auto &linha : m)
-    {
-        for (auto &ptr : linha)
-        {
-            delete ptr;
-        }
-    }
+    m = vector<vector<short int>>(_linhas, vector<short int>(_colunas, 0));
+}
+
+void Matriz::setMatriz(vector<vector<short int>> outra)
+{
 
     m.clear();
     m.resize(outra.size());
@@ -37,7 +28,7 @@ void Matriz::setMatriz(vector<vector<short int *>> outra)
     {
         for (size_t j = 0; j < outra[i].size(); ++j)
         {
-            m[i].push_back(new short int(*outra[i][j]));
+            m[i].push_back(outra[i][j]);
         }
     }
 }
