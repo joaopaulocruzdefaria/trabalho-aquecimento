@@ -3,6 +3,7 @@
 
 #include <vector>
 #include <iostream>
+#include "global.hpp"
 
 using namespace std;
 
@@ -16,11 +17,13 @@ class Matriz{
         void setColunas( short int _colunas) { colunas = _colunas; }
         void setMatriz(vector<vector< short int >> outra);
         void setItem( int i, int j, int item) { m[i][j] = item; }
+        void setInicioFogo(short int x, short int y) { inicioFogo.x = x; inicioFogo.y = y; }
 
         int getLinhas() { return linhas; }
         int getColunas() { return colunas; }
+        Pos getInicioFogo() { return inicioFogo; }
     
-        short int getItem(int i, int j) { return m[i][j];}
+        short int getItem(int i, int j);
         vector<vector< short int >> getMatriz() { return m; }
 
         void inicializarMatriz(short int _linhas, short int _colunas);
@@ -30,6 +33,7 @@ class Matriz{
     private:
         short int linhas;
         short int colunas;
+        Pos inicioFogo;
         vector<vector< short int >> m;
 };
 

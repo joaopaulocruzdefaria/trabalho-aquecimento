@@ -1,6 +1,16 @@
 #include "../include/matriz.hpp"
 #include "../include/global.hpp"
 
+short int Matriz::getItem(int i, int j) {
+    if (i >= 0 && i < linhas && j >= 0 && j < colunas)
+        return m[i][j];
+    else {
+        cout << "Tentativa de acessar [" << i << "," << j << "] FORA da matriz!" << endl;
+        return -1; // ou lança exceção
+    }
+}
+
+
 void Matriz::printarMatriz()
 {
     for (int i = 0; i < linhas; i++)
